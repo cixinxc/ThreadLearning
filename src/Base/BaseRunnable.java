@@ -1,5 +1,8 @@
 package Base;
 
+/*
+* 最简单的线程，使用interrupted()/isInterrupted响应中断
+* */
 public class BaseRunnable implements Runnable{
     public String baseRunnableName;
     public int yieldNum;
