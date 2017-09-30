@@ -5,7 +5,7 @@ package Base;
 * */
 public class BaseRunnableFlagToInterrupt implements Runnable{
     public String baseRunnableName;
-    public static volatile int interrupatFlag = 0;
+    public static  int interrupatFlag = 0;
     public BaseRunnableFlagToInterrupt(String name) {
         this.baseRunnableName = name;
     }
@@ -21,7 +21,7 @@ public class BaseRunnableFlagToInterrupt implements Runnable{
             * 通过标志位：无法再sleep时中断
             */
             //
-            //synchronized(this)
+            synchronized(this)
             {
                 if(this.interrupatFlag==1) {
                     System.out.println(this.baseRunnableName+" is isInterrupted");

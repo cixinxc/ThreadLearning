@@ -2,7 +2,7 @@ package Base;
 
 public class BaseRunnableFlagToSleepAndInterrupt implements Runnable {
     public String baseRunnableName;
-    public static int interrupatFlag = 0;
+    public static volatile int interrupatFlag = 0;
     public BaseRunnableFlagToSleepAndInterrupt(String name) {
         this.baseRunnableName = name;
     }
@@ -19,10 +19,10 @@ public class BaseRunnableFlagToSleepAndInterrupt implements Runnable {
                 break;
             }
             try{
-                Thread.sleep(1000);
+                Thread.sleep(100);
             } catch (InterruptedException e) {
                 System.out.println(this.baseRunnableName+" is interrupt when sleep");
-                //interrupatFlag = 1;
+                interrupatFlag = 1;
             }
         }
     }
